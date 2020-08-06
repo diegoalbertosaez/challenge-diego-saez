@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "6210612e-bb70-46eb-bf40-294a8030f243",
+		"name": "mavha",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\": \"Dulce Amanecer\",\n\"description\": \"Morbi porttitor lorem id ligula. Suspendisse ornare consequ\",\n\"owner_id\": \"0e89855a-bb9f-4c53-a638-3306e4c6a400\",\n\"adults\": 5,\n\"children\": 4,\n\"is_pets_allowed\": false,\n\"base_price\": 1000.00,\n\"cleaning_fee\": 50.00,\n\"image_url\": \"http://dummyimage.com/126x173.bmp/cc0000/ffffff\",\n\"weekly_discount\": 0.77,\n\"monthly_discount\": 0.61\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9090/api/listings",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"listings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"33809f56-e1d3-497d-96bd-7cc216ff1a5c\",\n    \"name\": \"Black Raven\",\n    \"slug\": \"black-raven\",\n    \"description\": \"Esta es una prueba\",\n    \"adults\": 3,\n    \"children\": 2,\n    \"specialPrices\": [],\n    \"owner_id\": \"0e89855a-bb9f-4c53-a638-3306e4c6a400\",\n    \"is_pets_allowed\": false,\n    \"base_price\": 195.62,\n    \"cleaning_fee\": 95.82,\n    \"image_url\": \"http://dummyimage.com/126x173.bmp/cc0000/ffffff\",\n    \"weekly_discount\": 0.77,\n    \"monthly_discount\": 0.61\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9090/api/listings",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"listings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/api/listings",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"listings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/api/listings/3fce319d-333f-4603-82a0-1e8f3e2be545",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"listings",
+						"3fce319d-333f-4603-82a0-1e8f3e2be545"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/api/listings/33809f56-e1d3-497d-96bd-7cc216ff1a5c",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"listings",
+						"33809f56-e1d3-497d-96bd-7cc216ff1a5c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add special price",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"date\": \"2020-08-10\",\n\"price\": 80.00\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9090/api/listings/3fce319d-333f-4603-82a0-1e8f3e2be545/special-prices",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"listings",
+						"3fce319d-333f-4603-82a0-1e8f3e2be545",
+						"special-prices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete special price",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/api/listings/3fce319d-333f-4603-82a0-1e8f3e2be545/special-prices/81446f17-79ca-4caf-98f8-c796aea7df31",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"listings",
+						"3fce319d-333f-4603-82a0-1e8f3e2be545",
+						"special-prices",
+						"81446f17-79ca-4caf-98f8-c796aea7df31"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate reservation cost",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"checkin\": \"2020-08-14\",\n\"checkout\": \"2020-08-28\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9090/api/listings/3fce319d-333f-4603-82a0-1e8f3e2be545/checkout",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"listings",
+						"3fce319d-333f-4603-82a0-1e8f3e2be545",
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
