@@ -5,6 +5,12 @@ import org.springframework.stereotype.Repository;
 
 import com.mahva.diego.saez.model.User;
 
+/**
+ * Repository for User entity
+ * 
+ * @author diegosaez
+ *
+ */
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
 
