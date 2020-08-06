@@ -9,12 +9,24 @@ import com.mahva.diego.saez.dto.ListingDto;
 import com.mahva.diego.saez.dto.SpecialPriceDto;
 import com.mahva.diego.saez.model.Listing;
 
+/**
+ * Mapper for listing entity
+ * 
+ * @author diegosaez
+ *
+ */
 public class ListingMapper {
 
 	private ListingMapper() {
 
 	}
 
+	/**
+	 * Convert model entity to dto
+	 * 
+	 * @param model
+	 * @return {@link ListingDto}
+	 */
 	public static ListingDto toDto(Listing model) {
 
 		final ListingDto listingDTO = new ListingDto();
@@ -39,6 +51,12 @@ public class ListingMapper {
 		return listingDTO;
 	}
 
+	/**
+	 * Convert a dto to entity model
+	 * 
+	 * @param dto
+	 * @return {@link Listing}
+	 */
 	public static Listing toModel(ListingDto dto) {
 
 		Listing listing = null;

@@ -3,12 +3,24 @@ package com.mahva.diego.saez.mapper;
 import com.mahva.diego.saez.dto.SpecialPriceDto;
 import com.mahva.diego.saez.model.SpecialPrice;
 
+/**
+ * Mapper for special price
+ * 
+ * @author diegosaez
+ *
+ */
 public class SpecialPriceMapper {
 
 	private SpecialPriceMapper() {
 
 	}
 
+	/**
+	 * Convert model entity to dto
+	 * 
+	 * @param model
+	 * @return {@link SpecialPriceDto}
+	 */
 	public static SpecialPriceDto toDto(SpecialPrice model) {
 
 		SpecialPriceDto specialPriceDto = new SpecialPriceDto();
@@ -22,6 +34,12 @@ public class SpecialPriceMapper {
 		return specialPriceDto;
 	}
 
+	/**
+	 * Convert a dto to entity model
+	 * 
+	 * @param dto
+	 * @return {@link SpecialPrice}
+	 */
 	public static SpecialPrice toModel(SpecialPriceDto dto) {
 
 		SpecialPrice specialPrice = new SpecialPrice();
