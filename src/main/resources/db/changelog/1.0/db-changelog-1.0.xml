@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+	  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+	<!-- CREATE TABLE USER -->
+	<changeSet id="CREATE_TABLE_USER" author="diego.saez">
+		<createTable tableName="user">
+			<column name="id" type="varchar(64)" autoIncrement="false">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="name" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="email" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="password" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<!-- CREATE TABLE LISTING -->
+	<changeSet id="CREATE_TABLE_LISTING" author="diego.saez">
+		<createTable tableName="listing">
+			<column name="id" type="varchar(64)" autoIncrement="false">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="owner_id" type="varchar(64)">
+				<constraints nullable="false" />
+			</column>
+			<column name="name" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="slug" type="varchar(255)" />
+			<column name="description" type="varchar(1024)" />
+			<column name="adults" type="int" />
+			<column name="children" type="int" defaultOnNull="0"/>
+			<column name="is_pets_allowed" type="boolean"
+				defaultOnNull="true" />
+			<column name="base_price" type="decimal(20,2)"
+				defaultOnNull="0" />
+			<column name="cleaning_fee" type="decimal(20,2)"
+				defaultOnNull="0" />
+			<column name="image_url" type="varchar(1024)" />
+			<column name="weekly_discount" type="decimal(20,2)"
+				defaultOnNull="0" />
+			<column name="monthly_discount" type="decimal(20,2)"
+				defaultOnNull="0" />
+		</createTable>
+		<addForeignKeyConstraint
+			constraintName="listings_users_FK" referencedTableName="user"
+			baseColumnNames="owner_id" baseTableName="listing"
+			referencedColumnNames="id" />
+	</changeSet>
+
+	<!-- CREATE TABLE SPECIAL_PRICE -->
+	<changeSet id="CREATE TABLE SPECIAL_PRICE"
+		author="diego.saez">
+		<createTable tableName="special_price">
+			<column name="id" type="varchar(64)" autoIncrement="false">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="listing_id" type="varchar(64)">
+				<constraints nullable="false" />
+			</column>
+			<column name="date" type="date">
+				<constraints nullable="false" />
+			</column>
+			<column name="price" type="decimal(20,2)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<addForeignKeyConstraint
+			constraintName="special_price_listing_FK"
+			referencedTableName="listing" baseColumnNames="listing_id"
+			baseTableName="special_price" referencedColumnNames="id"
+			onDelete="CASCADE" />
+	</changeSet>
+</databaseChangeLog>

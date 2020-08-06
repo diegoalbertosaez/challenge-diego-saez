@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+	  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+	<changeSet id="INSERT_DATA_IT_USER" author="diego.saez">
+		<insert tableName="user">
+			<column name="id">0e89855a-bb9f-4c53-a638-3306e4c6a400</column>
+			<column name="name">Test</column>
+			<column name="email">test@outlook.com</column>
+			<column name="password">$2y$12$BaBLvg1zDUUZDiwciBN7gOgaZRR434O96xa2rz6CFnKi8Uh2lVCna
+			</column>
+		</insert>
+	</changeSet>
+
+	<changeSet id="INSERT_DATA_IT_LISTING" author="listing">
+		<insert tableName="listing">
+			<column name="id">3fce319d-333f-4603-82a0-1e8f3e2be545</column>
+			<column name="owner_id">0e89855a-bb9f-4c53-a638-3306e4c6a400</column>
+			<column name="name">test test</column>
+			<column name="slug">test test</column>
+			<column name="description">
+				Test
+			</column>
+			<column name="adults">3</column>
+			<column name="children">2</column>
+			<column name="is_pets_allowed">false</column>
+			<column name="base_price">100.00</column>
+			<column name="cleaning_fee">10</column>
+			<column name="image_url">http://dummyimage.com/126x173.bmp/cc0000/ffffff
+			</column>
+			<column name="weekly_discount">0.05</column>
+			<column name="monthly_discount">0.10</column>
+		</insert>
+	</changeSet>
+
+	<changeSet id="INSERT_DATA_IT_SPECIAL_PRICE" author="">
+		<insert tableName="special_price">
+			<column name="id">81446f17-79ca-4caf-98f8-c796aea7df31</column>
+			<column name="listing_id">3fce319d-333f-4603-82a0-1e8f3e2be545</column>
+			<column name="date">2020-08-15</column>
+			<column name="price">50.00</column>
+		</insert>
+		<insert tableName="special_price">
+			<column name="id">e129c5fc-c6b8-469e-b54b-3f8727596310</column>
+			<column name="listing_id">3fce319d-333f-4603-82a0-1e8f3e2be545</column>
+			<column name="date">2020-08-18</column>
+			<column name="price">50.00</column>
+		</insert>
+	</changeSet>
+</databaseChangeLog>
